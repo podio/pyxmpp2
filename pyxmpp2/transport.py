@@ -305,7 +305,7 @@ class TCPTransport(XMPPTransport, IOHandler):
         self._dst_hostname = name
         resolver.resolve_address(name, callback = partial(
                                 self._got_addresses, name, port),
-                                allow_cname = self._dst_service is None)
+                                allow_cname=True)
         self.event(ResolvingAddressEvent(name))
 
     def _got_addresses(self, name, port, addrs):
